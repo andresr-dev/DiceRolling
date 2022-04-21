@@ -11,7 +11,7 @@ import SwiftUI
 struct DiceRollingApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DiceView(rotationTime: 3)
         }
     }
 }

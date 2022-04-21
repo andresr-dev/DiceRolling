@@ -11,6 +11,12 @@
 		8197F1D7280DBCCB00E81151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1D6280DBCCB00E81151 /* ContentView.swift */; };
 		8197F1D9280DBCCD00E81151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8197F1D8280DBCCD00E81151 /* Assets.xcassets */; };
 		8197F1DC280DBCCD00E81151 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8197F1DB280DBCCD00E81151 /* Preview Assets.xcassets */; };
+		8197F1E4280DBDA200E81151 /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1E3280DBDA200E81151 /* DiceView.swift */; };
+		8197F1EB280EFD3B00E81151 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1EA280EFD3B00E81151 /* Test.swift */; };
+		8197F1EF2810849A00E81151 /* DiceSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1EE2810849A00E81151 /* DiceSideView.swift */; };
+		8197F1F22810B9F700E81151 /* DiceView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1F12810B9F700E81151 /* DiceView-ViewModel.swift */; };
+		8197F1F82810BB5000E81151 /* DiceSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1F72810BB5000E81151 /* DiceSide.swift */; };
+		8197F1FA2810D2F500E81151 /* diceMovementTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1F92810D2F500E81151 /* diceMovementTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		8197F1D6280DBCCB00E81151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8197F1D8280DBCCD00E81151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8197F1DB280DBCCD00E81151 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8197F1E3280DBDA200E81151 /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
+		8197F1EA280EFD3B00E81151 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		8197F1EE2810849A00E81151 /* DiceSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSideView.swift; sourceTree = "<group>"; };
+		8197F1F12810B9F700E81151 /* DiceView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiceView-ViewModel.swift"; sourceTree = "<group>"; };
+		8197F1F72810BB5000E81151 /* DiceSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSide.swift; sourceTree = "<group>"; };
+		8197F1F92810D2F500E81151 /* diceMovementTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diceMovementTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +65,8 @@
 			children = (
 				8197F1D4280DBCCB00E81151 /* DiceRollingApp.swift */,
 				8197F1D6280DBCCB00E81151 /* ContentView.swift */,
+				8197F1F62810BB4200E81151 /* Models */,
+				8197F1E2280DBD9200E81151 /* Core */,
 				8197F1D8280DBCCD00E81151 /* Assets.xcassets */,
 				8197F1DA280DBCCD00E81151 /* Preview Content */,
 			);
@@ -65,6 +79,58 @@
 				8197F1DB280DBCCD00E81151 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8197F1E2280DBD9200E81151 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8197F1F32810BA4B00E81151 /* DiceView */,
+				8197F1E7280EFB5300E81151 /* Tests */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		8197F1E7280EFB5300E81151 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8197F1EA280EFD3B00E81151 /* Test.swift */,
+				8197F1F92810D2F500E81151 /* diceMovementTest.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		8197F1F32810BA4B00E81151 /* DiceView */ = {
+			isa = PBXGroup;
+			children = (
+				8197F1F42810BA5500E81151 /* ViewModel */,
+				8197F1F52810BA6B00E81151 /* Views */,
+			);
+			path = DiceView;
+			sourceTree = "<group>";
+		};
+		8197F1F42810BA5500E81151 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8197F1F12810B9F700E81151 /* DiceView-ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8197F1F52810BA6B00E81151 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8197F1E3280DBDA200E81151 /* DiceView.swift */,
+				8197F1EE2810849A00E81151 /* DiceSideView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8197F1F62810BB4200E81151 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8197F1F72810BB5000E81151 /* DiceSide.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +203,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8197F1F82810BB5000E81151 /* DiceSide.swift in Sources */,
+				8197F1FA2810D2F500E81151 /* diceMovementTest.swift in Sources */,
+				8197F1EF2810849A00E81151 /* DiceSideView.swift in Sources */,
 				8197F1D7280DBCCB00E81151 /* ContentView.swift in Sources */,
+				8197F1E4280DBDA200E81151 /* DiceView.swift in Sources */,
 				8197F1D5280DBCCB00E81151 /* DiceRollingApp.swift in Sources */,
+				8197F1F22810B9F700E81151 /* DiceView-ViewModel.swift in Sources */,
+				8197F1EB280EFD3B00E81151 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
