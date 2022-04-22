@@ -9,16 +9,20 @@ import SwiftUI
 
 extension DiceView {
     @MainActor final class Dice: ObservableObject {
+        let size: Double
+        
         @Published private(set) var dice = [DiceSide]()
         
         private var horizontalPattern = [6, 5, 1, 2]
         private var verticalPattern = [6, 4, 1, 3]
         
-        let rotationTime = 1.0
+        let rotationTime = 0.5
         
-        init() {
+        init(size: Double) {
+            self.size = size
+            
             (1...6).forEach { number in
-                let side = DiceSide(number: number, degrees: -90, offset: 150, anchor: .leading, rotateHorizontally: true)
+                let side = DiceSide(number: number, degrees: -90, offset: size, anchor: .leading, rotateHorizontally: true)
                 dice.append(side)
             }
             setInitialFacingSide()
@@ -34,13 +38,25 @@ extension DiceView {
             }
         }
         
+        func rollDice() {
+            for i in 0..<6 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + (Double(i) * rotationTime)) {
+                    if Bool.random() {
+                        self.rotateHorizontally()
+                    } else {
+                        self.rotateVertically()
+                    }
+                }
+            }
+        }
+        
         private func rotateDice(_ facingSideIndex: Int, _ nextSideIndex: Int) {
-            withAnimation(.linear(duration: rotationTime)) {
+            withAnimation(.easeInOut(duration: rotationTime)) {
                 dice[facingSideIndex].degrees += 90
-                dice[facingSideIndex].offset -= 150
+                dice[facingSideIndex].offset -= size
                 
                 dice[nextSideIndex].degrees += 90
-                dice[nextSideIndex].offset -= 150
+                dice[nextSideIndex].offset -= size
             }
         }
         
@@ -89,7 +105,7 @@ extension DiceView {
             dice[nextSideIndex].rotateHorizontally = true
             dice[nextSideIndex].anchor = .leading
             dice[nextSideIndex].degrees = -90
-            dice[nextSideIndex].offset = 150
+            dice[nextSideIndex].offset = size
             
             rotateDice(facingSideIndex, nextSideIndex)
         }
@@ -125,7 +141,7 @@ extension DiceView {
             dice[nextSideIndex].rotateHorizontally = false
             dice[nextSideIndex].anchor = .top
             dice[nextSideIndex].degrees = -90
-            dice[nextSideIndex].offset = 150
+            dice[nextSideIndex].offset = size
             
             rotateDice(facingSideIndex, nextSideIndex)
         }

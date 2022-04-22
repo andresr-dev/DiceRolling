@@ -17,6 +17,7 @@
 		8197F1F22810B9F700E81151 /* DiceView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1F12810B9F700E81151 /* DiceView-ViewModel.swift */; };
 		8197F1F82810BB5000E81151 /* DiceSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1F72810BB5000E81151 /* DiceSide.swift */; };
 		8197F1FA2810D2F500E81151 /* diceMovementTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1F92810D2F500E81151 /* diceMovementTest.swift */; };
+		8197F1FD281319E900E81151 /* ShapeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1FC281319E900E81151 /* ShapeStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		8197F1F12810B9F700E81151 /* DiceView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiceView-ViewModel.swift"; sourceTree = "<group>"; };
 		8197F1F72810BB5000E81151 /* DiceSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSide.swift; sourceTree = "<group>"; };
 		8197F1F92810D2F500E81151 /* diceMovementTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diceMovementTest.swift; sourceTree = "<group>"; };
+		8197F1FC281319E900E81151 /* ShapeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				8197F1D4280DBCCB00E81151 /* DiceRollingApp.swift */,
-				8197F1D6280DBCCB00E81151 /* ContentView.swift */,
+				8197F1FB281319DE00E81151 /* Extensions */,
 				8197F1F62810BB4200E81151 /* Models */,
 				8197F1E2280DBD9200E81151 /* Core */,
 				8197F1D8280DBCCD00E81151 /* Assets.xcassets */,
@@ -84,6 +86,7 @@
 		8197F1E2280DBD9200E81151 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8197F1D6280DBCCB00E81151 /* ContentView.swift */,
 				8197F1F32810BA4B00E81151 /* DiceView */,
 				8197F1E7280EFB5300E81151 /* Tests */,
 			);
@@ -131,6 +134,14 @@
 				8197F1F72810BB5000E81151 /* DiceSide.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8197F1FB281319DE00E81151 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8197F1FC281319E900E81151 /* ShapeStyle.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 				8197F1EF2810849A00E81151 /* DiceSideView.swift in Sources */,
 				8197F1D7280DBCCB00E81151 /* ContentView.swift in Sources */,
 				8197F1E4280DBDA200E81151 /* DiceView.swift in Sources */,
+				8197F1FD281319E900E81151 /* ShapeStyle.swift in Sources */,
 				8197F1D5280DBCCB00E81151 /* DiceRollingApp.swift in Sources */,
 				8197F1F22810B9F700E81151 /* DiceView-ViewModel.swift in Sources */,
 				8197F1EB280EFD3B00E81151 /* Test.swift in Sources */,

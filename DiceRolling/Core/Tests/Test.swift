@@ -45,7 +45,7 @@ struct Test: View {
     var body: some View {
         VStack {
             Rectangle()
-                .fill(.red)
+                .fill(.darkBlue)
                 .frame(width: 250, height: 250)
                 .scaleEffect(scaleAmount)
                 .offset(offset)

@@ -8,31 +8,35 @@
 import SwiftUI
 
 struct DiceView: View {
-    let rotationTime: Double
-    @StateObject var vm = Dice()
-    let diceSize = 150.0
+    let size: Double
+    @Binding var roll: Bool
+    @StateObject var vm: Dice
+    
+    init(size: Double, roll: Binding<Bool>) {
+        self.size = size
+        self._roll = roll
+        _vm = StateObject(wrappedValue: Dice(size: size))
+    }
     
     var body: some View {
-        VStack(spacing: 20) {
-            Button("Rotate Vertically") {
-                vm.rotateVertically()
+        ZStack {
+            ForEach(vm.dice, id: \.number) {
+                DiceSideView(side: $0, size: size)
             }
-            Button("Rotate Horizontally") {
-                vm.rotateHorizontally()
+        }
+        .frame(width: size, height: size)
+        .onChange(of: roll) { _ in
+            if roll {
+                vm.rollDice()
+                roll = false
             }
-            ZStack {
-                ForEach(vm.dice, id: \.number) {
-                    DiceSideView(side: $0, width: diceSize)
-                }
-            }
-            .frame(width: diceSize, height: diceSize)
         }
     }
 }
 
 struct DiceView_Previews: PreviewProvider {
     static var previews: some View {
-        DiceView(rotationTime: 3)
+        DiceView(size: 150, roll: .constant(false))
             .preferredColorScheme(.dark)
     }
 }

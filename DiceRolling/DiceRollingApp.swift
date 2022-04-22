@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct DiceRollingApp: App {
+    
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .tertiarySystemBackground
+    
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        
+    }
+    
     var body: some Scene {
         WindowGroup {
-            DiceView(rotationTime: 3)
+            ContentView()
         }
     }
 }

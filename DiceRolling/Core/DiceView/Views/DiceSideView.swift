@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DiceSideView: View {
     let side: DiceSide
-    let width: Double
+    let size: Double
     
     var body: some View {
         ZStack {
@@ -31,18 +31,18 @@ struct DiceSideView: View {
                 }
             }
             .shadow(radius: 5)
-            .padding(side.number == 5 ? width * 0.213 : side.number == 2 ? width * 0.2467 : width * 0.233)
-            .padding(.vertical, side.number == 6 ? -width * 0.04 : 0)
+            .padding(side.number == 5 ? size * 0.213 : side.number == 2 ? size * 0.2467 : size * 0.233)
+            .padding(.vertical, side.number == 6 ? -size * 0.04 : 0)
             .background {
                 Circle()
                     .fill(
-                        RadialGradient(gradient: Gradient(colors: [.blue, Color("DarkBlue")]), center: .bottomLeading, startRadius: width * 0.333, endRadius: width)
+                        RadialGradient(gradient: Gradient(colors: [.blue, .darkBlue]), center: .bottomLeading, startRadius: size * 0.333, endRadius: size)
                     )
-                    .padding(width * 0.033)
+                    .padding(size * 0.033)
             }
         }
         .background(
-            RadialGradient(gradient: Gradient(colors: [.blue, Color("DarkBlue")]), center: .topTrailing, startRadius: width * 0.333, endRadius: width)
+            RadialGradient(gradient: Gradient(colors: [.blue, .darkBlue]), center: .topTrailing, startRadius: size * 0.333, endRadius: size)
         )
         .overlay {
             Rectangle()
@@ -67,8 +67,8 @@ struct DiceSideView: View {
         Circle()
             .fill(.white)
             .frame(
-                width: side.number == 1 ? width * 0.18 : width * 0.167,
-                height: side.number == 1 ? width * 0.18 : width * 0.167
+                width: side.number == 1 ? size * 0.18 : size * 0.167,
+                height: side.number == 1 ? size * 0.18 : size * 0.167
             )
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
     }
@@ -76,7 +76,7 @@ struct DiceSideView: View {
 
 struct DiceSideView_Previews: PreviewProvider {
     static var previews: some View {
-        DiceSideView(side: DiceSide.example, width: 150)
+        DiceSideView(side: DiceSide.example, size: 150)
             .frame(width: 150, height: 150)
             .previewLayout(.sizeThatFits)
     }
