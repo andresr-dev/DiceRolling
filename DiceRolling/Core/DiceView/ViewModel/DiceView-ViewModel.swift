@@ -11,8 +11,8 @@ extension DiceView {
     @MainActor final class Dice: ObservableObject {
         @Published private(set) var dice = [DiceSide]()
         
-        var horizontalPattern = [6, 5, 1, 2]
-        var verticalPattern = [6, 4, 1, 3]
+        private var horizontalPattern = [6, 5, 1, 2]
+        private var verticalPattern = [6, 4, 1, 3]
         
         let rotationTime = 1.0
         
@@ -31,6 +31,16 @@ extension DiceView {
             if let facingSideIndex = dice.firstIndex(where: { $0.number == horizontalPattern[0] }) {
                 dice[facingSideIndex].degrees = 0
                 dice[facingSideIndex].offset = 0
+            }
+        }
+        
+        private func rotateDice(_ facingSideIndex: Int, _ nextSideIndex: Int) {
+            withAnimation(.linear(duration: rotationTime)) {
+                dice[facingSideIndex].degrees += 90
+                dice[facingSideIndex].offset -= 150
+                
+                dice[nextSideIndex].degrees += 90
+                dice[nextSideIndex].offset -= 150
             }
         }
         
@@ -118,16 +128,6 @@ extension DiceView {
             dice[nextSideIndex].offset = 150
             
             rotateDice(facingSideIndex, nextSideIndex)
-        }
-        
-        private func rotateDice(_ facingSideIndex: Int, _ nextSideIndex: Int) {
-            withAnimation(.linear(duration: rotationTime)) {
-                dice[facingSideIndex].degrees += 90
-                dice[facingSideIndex].offset -= 150
-                
-                dice[nextSideIndex].degrees += 90
-                dice[nextSideIndex].offset -= 150
-            }
         }
     }
 }

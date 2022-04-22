@@ -14,5 +14,5 @@ struct DiceSide {
     var anchor: UnitPoint
     var rotateHorizontally: Bool
     
-    static let example = DiceSide(number: 2, degrees: 0, offset: 0, anchor: .trailing, rotateHorizontally: true)
+    static let example = DiceSide(number: 6, degrees: 0, offset: 0, anchor: .trailing, rotateHorizontally: true)
 }

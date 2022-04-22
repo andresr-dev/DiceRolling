@@ -10,6 +10,7 @@ import SwiftUI
 struct DiceView: View {
     let rotationTime: Double
     @StateObject var vm = Dice()
+    let diceSize = 150.0
     
     var body: some View {
         VStack(spacing: 20) {
@@ -21,10 +22,10 @@ struct DiceView: View {
             }
             ZStack {
                 ForEach(vm.dice, id: \.number) {
-                    DiceSideView(side: $0)
+                    DiceSideView(side: $0, width: diceSize)
                 }
             }
-            .frame(width: 150, height: 150)
+            .frame(width: diceSize, height: diceSize)
         }
     }
 }
