@@ -8,31 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		8197F1D5280DBCCB00E81151 /* DiceRollingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1D4280DBCCB00E81151 /* DiceRollingApp.swift */; };
-		8197F1D7280DBCCB00E81151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1D6280DBCCB00E81151 /* ContentView.swift */; };
 		8197F1D9280DBCCD00E81151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8197F1D8280DBCCD00E81151 /* Assets.xcassets */; };
 		8197F1DC280DBCCD00E81151 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8197F1DB280DBCCD00E81151 /* Preview Assets.xcassets */; };
 		8197F1E4280DBDA200E81151 /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1E3280DBDA200E81151 /* DiceView.swift */; };
 		8197F1EB280EFD3B00E81151 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1EA280EFD3B00E81151 /* Test.swift */; };
 		8197F1EF2810849A00E81151 /* DiceSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1EE2810849A00E81151 /* DiceSideView.swift */; };
-		8197F1F22810B9F700E81151 /* DiceView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1F12810B9F700E81151 /* DiceView-ViewModel.swift */; };
 		8197F1F82810BB5000E81151 /* DiceSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1F72810BB5000E81151 /* DiceSide.swift */; };
 		8197F1FA2810D2F500E81151 /* diceMovementTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1F92810D2F500E81151 /* diceMovementTest.swift */; };
 		8197F1FD281319E900E81151 /* ShapeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1FC281319E900E81151 /* ShapeStyle.swift */; };
+		8197F2032814A58B00E81151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F2022814A58B00E81151 /* ContentView.swift */; };
+		8197F2062814A7E700E81151 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F2052814A7E600E81151 /* ViewModel.swift */; };
+		8197F2092814A84D00E81151 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F2082814A84D00E81151 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8197F1D1280DBCCB00E81151 /* DiceRolling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiceRolling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8197F1D4280DBCCB00E81151 /* DiceRollingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollingApp.swift; sourceTree = "<group>"; };
-		8197F1D6280DBCCB00E81151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8197F1D8280DBCCD00E81151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8197F1DB280DBCCD00E81151 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8197F1E3280DBDA200E81151 /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
 		8197F1EA280EFD3B00E81151 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		8197F1EE2810849A00E81151 /* DiceSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSideView.swift; sourceTree = "<group>"; };
-		8197F1F12810B9F700E81151 /* DiceView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiceView-ViewModel.swift"; sourceTree = "<group>"; };
 		8197F1F72810BB5000E81151 /* DiceSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSide.swift; sourceTree = "<group>"; };
 		8197F1F92810D2F500E81151 /* diceMovementTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diceMovementTest.swift; sourceTree = "<group>"; };
 		8197F1FC281319E900E81151 /* ShapeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeStyle.swift; sourceTree = "<group>"; };
+		8197F2022814A58B00E81151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8197F2052814A7E600E81151 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		8197F2082814A84D00E81151 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +69,9 @@
 			children = (
 				8197F1D4280DBCCB00E81151 /* DiceRollingApp.swift */,
 				8197F1FB281319DE00E81151 /* Extensions */,
-				8197F1F62810BB4200E81151 /* Models */,
-				8197F1E2280DBD9200E81151 /* Core */,
+				8197F2042814A7B900E81151 /* ViewModel */,
+				8197F2002814A53200E81151 /* Core */,
+				8197F1E7280EFB5300E81151 /* Tests */,
 				8197F1D8280DBCCD00E81151 /* Assets.xcassets */,
 				8197F1DA280DBCCD00E81151 /* Preview Content */,
 			);
@@ -83,16 +86,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		8197F1E2280DBD9200E81151 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				8197F1D6280DBCCB00E81151 /* ContentView.swift */,
-				8197F1F32810BA4B00E81151 /* DiceView */,
-				8197F1E7280EFB5300E81151 /* Tests */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
 		8197F1E7280EFB5300E81151 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,38 +95,13 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		8197F1F32810BA4B00E81151 /* DiceView */ = {
+		8197F1F32810BA4B00E81151 /* Dice */ = {
 			isa = PBXGroup;
 			children = (
-				8197F1F42810BA5500E81151 /* ViewModel */,
-				8197F1F52810BA6B00E81151 /* Views */,
+				8197F1FF2814A49800E81151 /* Model */,
+				8197F1FE2814A48800E81151 /* Views */,
 			);
-			path = DiceView;
-			sourceTree = "<group>";
-		};
-		8197F1F42810BA5500E81151 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				8197F1F12810B9F700E81151 /* DiceView-ViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		8197F1F52810BA6B00E81151 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8197F1E3280DBDA200E81151 /* DiceView.swift */,
-				8197F1EE2810849A00E81151 /* DiceSideView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8197F1F62810BB4200E81151 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				8197F1F72810BB5000E81151 /* DiceSide.swift */,
-			);
-			path = Models;
+			path = Dice;
 			sourceTree = "<group>";
 		};
 		8197F1FB281319DE00E81151 /* Extensions */ = {
@@ -142,6 +110,49 @@
 				8197F1FC281319E900E81151 /* ShapeStyle.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8197F1FE2814A48800E81151 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8197F1E3280DBDA200E81151 /* DiceView.swift */,
+				8197F1EE2810849A00E81151 /* DiceSideView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8197F1FF2814A49800E81151 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8197F1F72810BB5000E81151 /* DiceSide.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8197F2002814A53200E81151 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8197F2022814A58B00E81151 /* ContentView.swift */,
+				8197F2072814A83400E81151 /* Settings */,
+				8197F1F32810BA4B00E81151 /* Dice */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		8197F2042814A7B900E81151 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8197F2052814A7E600E81151 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8197F2072814A83400E81151 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8197F2082814A84D00E81151 /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,15 +225,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8197F2062814A7E700E81151 /* ViewModel.swift in Sources */,
+				8197F2032814A58B00E81151 /* ContentView.swift in Sources */,
 				8197F1F82810BB5000E81151 /* DiceSide.swift in Sources */,
 				8197F1FA2810D2F500E81151 /* diceMovementTest.swift in Sources */,
 				8197F1EF2810849A00E81151 /* DiceSideView.swift in Sources */,
-				8197F1D7280DBCCB00E81151 /* ContentView.swift in Sources */,
 				8197F1E4280DBDA200E81151 /* DiceView.swift in Sources */,
 				8197F1FD281319E900E81151 /* ShapeStyle.swift in Sources */,
 				8197F1D5280DBCCB00E81151 /* DiceRollingApp.swift in Sources */,
-				8197F1F22810B9F700E81151 /* DiceView-ViewModel.swift in Sources */,
 				8197F1EB280EFD3B00E81151 /* Test.swift in Sources */,
+				8197F2092814A84D00E81151 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,10 +11,15 @@ import SwiftUI
 struct DiceRollingApp: App {
     
     init() {
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .tertiarySystemBackground
-    
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+//        let appearance = UITabBarAppearance()
+//        appearance.backgroundColor = .secondarySystemBackground
+//
+//        UITabBar.appearance().scrollEdgeAppearance = appearance
+        
+//        let appearance = UINavigationBarAppearance()
+//        appearance.backgroundColor = .secondarySystemBackground
+//    
+//        UINavigationBar.appearance().scrollEdgeAppearance = appearance
         
     }
     
