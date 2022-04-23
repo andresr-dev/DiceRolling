@@ -10,12 +10,14 @@ import SwiftUI
 struct DiceView: View {
     let size: Double
     @Binding var roll: Bool
-    @StateObject var vm: Dice
+    @Binding var result: Int?
+    @StateObject var vm: ViewModel
     
-    init(size: Double, roll: Binding<Bool>) {
+    init(size: Double, roll: Binding<Bool>, result: Binding<Int?>) {
         self.size = size
         self._roll = roll
-        _vm = StateObject(wrappedValue: Dice(size: size))
+        self._result = result
+        _vm = StateObject(wrappedValue: ViewModel(size: size))
     }
     
     var body: some View {
@@ -31,12 +33,17 @@ struct DiceView: View {
                 roll = false
             }
         }
+        .onChange(of: vm.result) { newResult in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                result = newResult
+            }
+        }
     }
 }
 
 struct DiceView_Previews: PreviewProvider {
     static var previews: some View {
-        DiceView(size: 150, roll: .constant(false))
+        DiceView(size: 150, roll: .constant(false), result: .constant(4))
             .preferredColorScheme(.dark)
     }
 }

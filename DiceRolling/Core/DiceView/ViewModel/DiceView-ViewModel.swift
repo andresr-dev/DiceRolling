@@ -8,10 +8,12 @@
 import SwiftUI
 
 extension DiceView {
-    @MainActor final class Dice: ObservableObject {
+    @MainActor final class ViewModel: ObservableObject {
         let size: Double
         
         @Published private(set) var dice = [DiceSide]()
+        
+        @Published private(set) var result: Int?
         
         private var horizontalPattern = [6, 5, 1, 2]
         private var verticalPattern = [6, 4, 1, 3]
@@ -20,7 +22,6 @@ extension DiceView {
         
         init(size: Double) {
             self.size = size
-            
             (1...6).forEach { number in
                 let side = DiceSide(number: number, degrees: -90, offset: size, anchor: .leading, rotateHorizontally: true)
                 dice.append(side)
@@ -39,12 +40,13 @@ extension DiceView {
         }
         
         func rollDice() {
-            for i in 0..<6 {
+            result = nil
+            for i in 0..<5 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + (Double(i) * rotationTime)) {
                     if Bool.random() {
-                        self.rotateHorizontally()
+                        self.rotateHorizontally(getResult: i == 4)
                     } else {
-                        self.rotateVertically()
+                        self.rotateVertically(getResult: i == 4)
                     }
                 }
             }
@@ -74,7 +76,7 @@ extension DiceView {
             horizontalPattern.insert(verticalPattern[2], at: 2)
         }
         
-        func rotateHorizontally() {
+        func rotateHorizontally(getResult: Bool) {
             if let facingSideIndex = dice.firstIndex(where: { $0.degrees == 0 }) {
                 // Reorder patterns
                 moveHorizontalPattern()
@@ -90,11 +92,17 @@ extension DiceView {
                     if currentHorizontalIndex < 3 {
                         if let nextSideIndex = dice.firstIndex(where: { $0.number == horizontalPattern[currentHorizontalIndex + 1] }) {
                             setNextSideBeforeMovingHorizontally(facingSideIndex, nextSideIndex)
+                            if getResult {
+                                result = dice[nextSideIndex].number
+                            }
                         }
                     } else {
                         // next index is 0
                         if let nextSideIndex = dice.firstIndex(where: { $0.number == horizontalPattern[0] }) {
                             setNextSideBeforeMovingHorizontally(facingSideIndex, nextSideIndex)
+                            if getResult {
+                                result = dice[nextSideIndex].number
+                            }
                         }
                     }
                 }
@@ -110,7 +118,7 @@ extension DiceView {
             rotateDice(facingSideIndex, nextSideIndex)
         }
         
-        func rotateVertically() {
+        func rotateVertically(getResult: Bool) {
             if let facingSideIndex = dice.firstIndex(where: { $0.degrees == 0 }) {
                 // Reorder patterns
                 moveVerticalPattern()
@@ -126,11 +134,17 @@ extension DiceView {
                     if currentVerticalIndex < 3 {
                         if let nextSideIndex = dice.firstIndex(where: { $0.number == verticalPattern[currentVerticalIndex + 1] }) {
                             setNextSideBeforeMovingVertically(facingSideIndex, nextSideIndex)
+                            if getResult {
+                                result = dice[nextSideIndex].number
+                            }
                         }
                     } else {
                         // next index is 0
                         if let nextSideIndex = dice.firstIndex(where: { $0.number == verticalPattern[0] }) {
                             setNextSideBeforeMovingVertically(facingSideIndex, nextSideIndex)
+                            if getResult {
+                                result = dice[nextSideIndex].number
+                            }
                         }
                     }
                 }
