@@ -10,7 +10,7 @@ import SwiftUI
 struct DiceView: View {
     let size: Double
     @Binding var roll: Bool
-    @Binding var result: Int?
+    @Binding var result: Int
     
     @State private var horizontalPattern: [Int]
     @State private var verticalPattern: [Int]
@@ -34,7 +34,7 @@ struct DiceView: View {
         }
     }
     
-    init(size: Double, roll: Binding<Bool>, result: Binding<Int?>) {
+    init(size: Double, roll: Binding<Bool>, result: Binding<Int>) {
         self.size = size
         self._roll = roll
         self._result = result
@@ -52,7 +52,7 @@ struct DiceView: View {
         var allSides = [DiceSide]()
         
         (1...6).forEach { number in
-            let side = DiceSide(number: number, degrees: -89.9, offset: size, anchor: .leading, rotateHorizontally: true)
+            let side = DiceSide(number: number, degrees: -90, offset: size, anchor: .leading, rotateHorizontally: true)
             allSides.append(side)
         }
         if let facingSideIndex = allSides.firstIndex(where: { $0.number == horPattern[0] }) {
@@ -69,7 +69,7 @@ struct DiceView: View {
 struct DiceView_Previews: PreviewProvider {
     static var previews: some View {
         DiceView(size: 150, roll: .constant(false), result: .constant(4))
-            .preferredColorScheme(.dark)
+            .previewLayout(.sizeThatFits)
     }
 }
 
@@ -87,10 +87,10 @@ extension DiceView {
     private func rotateDice(_ facingSideIndex: Int, _ nextSideIndex: Int) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             withAnimation(.easeInOut(duration: 0.2)) {
-                self.dice[facingSideIndex].degrees += 89.9
+                self.dice[facingSideIndex].degrees += 90
                 self.dice[facingSideIndex].offset -= self.size
                 
-                self.dice[nextSideIndex].degrees += 89.9
+                self.dice[nextSideIndex].degrees += 90
                 self.dice[nextSideIndex].offset -= self.size
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
@@ -117,7 +117,7 @@ extension DiceView {
     private func setNextSideBeforeMovingHorizontally(_ facingSideIndex: Int, _ nextSideIndex: Int) {
         dice[nextSideIndex].rotateHorizontally = true
         dice[nextSideIndex].anchor = .leading
-        dice[nextSideIndex].degrees = -89.9
+        dice[nextSideIndex].degrees = -90
         dice[nextSideIndex].offset = size
         
         rotateDice(facingSideIndex, nextSideIndex)
@@ -162,7 +162,7 @@ extension DiceView {
     private func setNextSideBeforeMovingVertically(_ facingSideIndex: Int, _ nextSideIndex: Int) {
         dice[nextSideIndex].rotateHorizontally = false
         dice[nextSideIndex].anchor = .top
-        dice[nextSideIndex].degrees = -89.9
+        dice[nextSideIndex].degrees = -90
         dice[nextSideIndex].offset = size
         
         rotateDice(facingSideIndex, nextSideIndex)

@@ -9,12 +9,13 @@ import SwiftUI
 
 struct SettingsView: View {
     @ObservedObject var vm: ViewModel
-    
+        
     var body: some View {
         Form {
             Section {
                 VStack(alignment: .leading) {
-                    Text("Select Number of dice:")
+                    Text("Number of dice:")
+                        .font(.headline)
                     Picker("Numver of dice", selection: $vm.numberOfDiceSelected) {
                         ForEach(vm.numberOfDiceOptions, id: \.self) {
                             Text($0, format: .number)
@@ -30,6 +31,8 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(vm: ViewModel())
+        NavigationView {
+            SettingsView(vm: ViewModel())
+        }
     }
 }

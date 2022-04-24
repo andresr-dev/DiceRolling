@@ -9,13 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var vm = ViewModel()
-    
+        
     @State private var roll1 = false
+    @State private var result1 = 0
     @State private var roll2 = false
-    @State private var result1: Int?
-    @State private var result2: Int?
-    
-    
+    @State private var result2 = 0
+    @State private var roll3 = false
+    @State private var result3 = 0
+    @State private var roll4 = false
+    @State private var result4 = 0
+    @State private var total = 0
     
     var body: some View {
         NavigationView {
@@ -25,14 +28,7 @@ struct ContentView: View {
                     Spacer()
                     resultBox
                     Spacer()
-                    HStack {
-                        Spacer()
-                        DiceView(size: 125, roll: $roll1, result: $result1)
-                        Spacer()
-                        DiceView(size: 125, roll: $roll2, result: $result2)
-                        Spacer()
-                    }
-                    Spacer()
+                    dice
                     Spacer()
                     button
                 }
@@ -46,6 +42,12 @@ struct ContentView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     historyButton
                 }
+            }
+            .onChange(of: result1) { _ in
+                total = result1 + result2 + result3 + result4
+            }
+            .onChange(of: vm.numberOfDiceSelected) { _ in
+                total = 0
             }
         }
     }
@@ -67,28 +69,58 @@ extension ContentView {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
                 .fill(.white.opacity(0.5))
-                .frame(width: 110, height: 90)
+                .frame(width: 100, height: 78)
                 .overlay {
                     RoundedRectangle(cornerRadius: 20)
                         .strokeBorder(.black, lineWidth: 0.5)
                 }
             
-            if let result = result1 {
-                Text("\(result)")
-                    .font(.system(size: 54, weight: .semibold))
-            } else {
-                Text("?")
-                    .font(.system(size: 54, weight: .semibold))
-            }
+            Text(total == 0 ? "?" : "\(total)")
+                .font(.system(size: 54, weight: .semibold))
         }
         .foregroundColor(.black)
+    }
+    
+    private var dice: some View {
+        VStack(spacing: 50) {
+            HStack {
+                DiceView(
+                    size: vm.numberOfDiceSelected == 1 ? 150 : 120,
+                    roll: $roll1,
+                    result: $result1
+                )
+                .frame(maxWidth: .infinity)
+                if vm.numberOfDiceSelected > 1 {
+                    DiceView(size: 120, roll: $roll2, result: $result2)
+                        .frame(maxWidth: .infinity)
+                }
+            }
+            HStack {
+                if vm.numberOfDiceSelected > 2 {
+                    DiceView(size: 120, roll: $roll3, result: $result3)
+                        .frame(maxWidth: .infinity)
+                }
+                if vm.numberOfDiceSelected > 3 {
+                    DiceView(size: 120, roll: $roll4, result: $result4)
+                        .frame(maxWidth: .infinity)
+                }
+            }
+        }
+        .padding(.horizontal)
+        .padding(.bottom, 40)
     }
     
     private var button: some View {
         Button {
             roll1 = true
-            roll2 = true
-            result1 = nil
+            roll2 = vm.numberOfDiceSelected > 1 ? true : false
+            roll3 = vm.numberOfDiceSelected > 2 ? true : false
+            roll4 = vm.numberOfDiceSelected > 3 ? true : false
+            result1 = 0
+            result2 = 0
+            result3 = 0
+            result4 = 0
+            total = 0
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 15)
