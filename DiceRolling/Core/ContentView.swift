@@ -25,6 +25,15 @@ struct ContentView: View {
             ZStack {
                 background
                 VStack {
+                    HStack {
+                        settingsButton
+                        Spacer()
+                        usernameBox
+                        
+                        Spacer()
+                        historyButton
+                    }
+                    .padding(.horizontal)
                     Spacer()
                     resultBox
                     Spacer()
@@ -34,19 +43,17 @@ struct ContentView: View {
                 }
                 .padding(.bottom)
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    settingsButton
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    historyButton
-                }
-            }
+            .navigationBarHidden(true)
             .onChange(of: result1) { _ in
                 total = result1 + result2 + result3 + result4
+                if total != 0 {
+                    vm.addDataToUser(total)
+                }
             }
             .onChange(of: vm.numberOfDiceSelected) { _ in
+                total = 0
+            }
+            .onChange(of: vm.currentUsername) { _ in
                 total = 0
             }
         }
@@ -60,11 +67,71 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 extension ContentView {
+    private var settingsButton: some View {
+        NavigationLink {
+            SettingsView(vm: vm)
+        } label: {
+            ZStack {
+                Circle()
+                    .fill(.white.opacity(0.5))
+                    .frame(width: 42, height: 42)
+                    .overlay {
+                        Circle()
+                            .strokeBorder(.black, lineWidth: 0.2)
+                    }
+                
+                Image(systemName: "gear")
+                    .foregroundColor(.black)
+            }
+        }
+    }
+    
+    private var usernameBox: some View {
+        Menu {
+            Picker("Usernames", selection: $vm.currentUsername) {
+                let usernames = vm.users.map({ $0.name })
+                ForEach(usernames, id: \.self) { name in
+                    Text(name)
+                        .foregroundColor(.black)
+                }
+            }
+        } label: {
+            Text(vm.currentUsername)
+                .font(.headline)
+                .foregroundColor(.black)
+                .frame(maxWidth: .infinity)
+                .frame(height: 40)
+                .background(.white.opacity(0.5))
+                .cornerRadius(10)
+        }
+        .padding(.horizontal)
+    }
+    
+    private var historyButton: some View {
+        NavigationLink {
+            HistoryView(vm: vm)
+        } label: {
+            ZStack {
+                Circle()
+                    .fill(.white.opacity(0.5))
+                    .frame(width: 42, height: 42)
+                    .overlay {
+                        Circle()
+                            .strokeBorder(.black, lineWidth: 0.2)
+                    }
+                
+                Image(systemName: "clock.arrow.circlepath")
+                    .foregroundColor(.black)
+            }
+        }
+    }
+    
     private var background: some View {
         Image("wood")
             .resizable()
             .ignoresSafeArea()
     }
+    
     private var resultBox: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
@@ -85,7 +152,7 @@ extension ContentView {
         VStack(spacing: 50) {
             HStack {
                 DiceView(
-                    size: vm.numberOfDiceSelected == 1 ? 150 : 120,
+                    size: vm.numberOfDiceSelected == 1 ? 140 : 120,
                     roll: $roll1,
                     result: $result1
                 )
@@ -139,43 +206,5 @@ extension ContentView {
         }
         .padding(.horizontal, 30)
         .padding(.bottom, 5)
-    }
-    
-    private var settingsButton: some View {
-        NavigationLink {
-            SettingsView(vm: vm)
-        } label: {
-            ZStack {
-                Circle()
-                    .fill(.white.opacity(0.5))
-                    .frame(width: 42, height: 42)
-                    .overlay {
-                        Circle()
-                            .strokeBorder(.black, lineWidth: 0.2)
-                    }
-                
-                Image(systemName: "gear")
-                    .foregroundColor(.black)
-            }
-        }
-    }
-    
-    private var historyButton: some View {
-        NavigationLink {
-            Text("History")
-        } label: {
-            ZStack {
-                Circle()
-                    .fill(.white.opacity(0.5))
-                    .frame(width: 42, height: 42)
-                    .overlay {
-                        Circle()
-                            .strokeBorder(.black, lineWidth: 0.2)
-                    }
-                
-                Image(systemName: "clock.arrow.circlepath")
-                    .foregroundColor(.black)
-            }
-        }
     }
 }

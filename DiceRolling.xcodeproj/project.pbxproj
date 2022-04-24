@@ -19,6 +19,9 @@
 		8197F2032814A58B00E81151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F2022814A58B00E81151 /* ContentView.swift */; };
 		8197F2062814A7E700E81151 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F2052814A7E600E81151 /* ViewModel.swift */; };
 		8197F2092814A84D00E81151 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F2082814A84D00E81151 /* SettingsView.swift */; };
+		81BB22C82815AE8E00F4D6B3 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB22C72815AE8E00F4D6B3 /* HistoryView.swift */; };
+		81BB22CA2815B67E00F4D6B3 /* MenuExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB22C92815B67E00F4D6B3 /* MenuExample.swift */; };
+		81BB22CD2815B90400F4D6B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB22CC2815B90400F4D6B3 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,9 @@
 		8197F2022814A58B00E81151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8197F2052814A7E600E81151 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8197F2082814A84D00E81151 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		81BB22C72815AE8E00F4D6B3 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		81BB22C92815B67E00F4D6B3 /* MenuExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuExample.swift; sourceTree = "<group>"; };
+		81BB22CC2815B90400F4D6B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 			children = (
 				8197F1D4280DBCCB00E81151 /* DiceRollingApp.swift */,
 				8197F1FB281319DE00E81151 /* Extensions */,
+				81BB22CB2815B8E700F4D6B3 /* Model */,
 				8197F2042814A7B900E81151 /* ViewModel */,
 				8197F2002814A53200E81151 /* Core */,
 				8197F1E7280EFB5300E81151 /* Tests */,
@@ -91,6 +98,7 @@
 			children = (
 				8197F1EA280EFD3B00E81151 /* Test.swift */,
 				8197F1F92810D2F500E81151 /* diceMovementTest.swift */,
+				81BB22C92815B67E00F4D6B3 /* MenuExample.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -133,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				8197F2022814A58B00E81151 /* ContentView.swift */,
+				81BB22C62815AE7F00F4D6B3 /* History */,
 				8197F2072814A83400E81151 /* Settings */,
 				8197F1F32810BA4B00E81151 /* Dice */,
 			);
@@ -153,6 +162,22 @@
 				8197F2082814A84D00E81151 /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		81BB22C62815AE7F00F4D6B3 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				81BB22C72815AE8E00F4D6B3 /* HistoryView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		81BB22CB2815B8E700F4D6B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				81BB22CC2815B90400F4D6B3 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,11 +250,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81BB22CD2815B90400F4D6B3 /* User.swift in Sources */,
 				8197F2062814A7E700E81151 /* ViewModel.swift in Sources */,
 				8197F2032814A58B00E81151 /* ContentView.swift in Sources */,
 				8197F1F82810BB5000E81151 /* DiceSide.swift in Sources */,
 				8197F1FA2810D2F500E81151 /* diceMovementTest.swift in Sources */,
 				8197F1EF2810849A00E81151 /* DiceSideView.swift in Sources */,
+				81BB22CA2815B67E00F4D6B3 /* MenuExample.swift in Sources */,
+				81BB22C82815AE8E00F4D6B3 /* HistoryView.swift in Sources */,
 				8197F1E4280DBDA200E81151 /* DiceView.swift in Sources */,
 				8197F1FD281319E900E81151 /* ShapeStyle.swift in Sources */,
 				8197F1D5280DBCCB00E81151 /* DiceRollingApp.swift in Sources */,

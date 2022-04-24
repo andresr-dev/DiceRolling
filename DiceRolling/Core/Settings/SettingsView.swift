@@ -9,13 +9,12 @@ import SwiftUI
 
 struct SettingsView: View {
     @ObservedObject var vm: ViewModel
+    @State private var name = ""
         
     var body: some View {
         Form {
-            Section {
+            Section("Number of dice") {
                 VStack(alignment: .leading) {
-                    Text("Number of dice:")
-                        .font(.headline)
                     Picker("Numver of dice", selection: $vm.numberOfDiceSelected) {
                         ForEach(vm.numberOfDiceOptions, id: \.self) {
                             Text($0, format: .number)
@@ -24,8 +23,30 @@ struct SettingsView: View {
                     .pickerStyle(.segmented)
                 }
             }
+            
+            Section("Users") {
+                HStack {
+                    TextField("New username", text: $name)
+                    Button("Add", action: addButtonPressed)
+                    .disabled(name.isEmpty)
+                }
+                List {
+                    ForEach(vm.users, id: \.name) {
+                        Text($0.name)
+                    }
+                    .onDelete(perform: vm.deleteUser)
+                }
+            }
         }
         .navigationTitle("Settings")
+    }
+    
+    private func addButtonPressed() {
+        let trimmedName = name.trimmingCharacters(in: .whitespaces)
+        guard !trimmedName.isEmpty else { return }
+        let newUser = User(name: trimmedName, data: [Int:[Int]]())
+        vm.addUser(newUser)
+        name = ""
     }
 }
 

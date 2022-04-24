@@ -15,7 +15,7 @@ struct DiceView: View {
     @State private var horizontalPattern: [Int]
     @State private var verticalPattern: [Int]
     
-    @State var dice = [DiceSide]()
+    @State var dice: [DiceSide]
     
     @State private var rollCount = 5
         
