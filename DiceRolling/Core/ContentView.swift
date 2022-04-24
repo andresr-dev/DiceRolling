@@ -96,7 +96,7 @@ extension ContentView {
                 }
             }
         } label: {
-            Text(vm.currentUsername)
+            Text(vm.users.isEmpty ? "Uknown User" : vm.currentUsername)
                 .font(.headline)
                 .foregroundColor(.black)
                 .frame(maxWidth: .infinity)

@@ -14,6 +14,10 @@ struct HistoryView: View {
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, pinnedViews: [.sectionHeaders]) {
+                if vm.users.isEmpty {
+                    Text("There's no users yet!")
+                        .frame(maxWidth: .infinity)
+                }
                 ForEach(vm.users, id: \.name) { user in
                     Section {
                         if let data1 = user.data[1] {

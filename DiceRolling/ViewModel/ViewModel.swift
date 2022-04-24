@@ -15,11 +15,6 @@ import SwiftUI
     @Published var users = [User]()
     @Published var currentUsername = ""
     
-    init() {
-        users = User.usersExample
-        currentUsername = users.first?.name ?? ""
-    }
-    
     func addUser(_ newUser: User) {
         guard !users.contains(where: { $0 == newUser }) else { return }
         withAnimation {
