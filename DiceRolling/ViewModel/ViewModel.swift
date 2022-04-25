@@ -15,6 +15,8 @@ import SwiftUI
     @Published var users = [User]()
     @Published var currentUsername = ""
     
+    @Published var showClearHistoryButton = false
+    
     func addUser(_ newUser: User) {
         guard !users.contains(where: { $0 == newUser }) else { return }
         withAnimation {
@@ -36,13 +38,13 @@ import SwiftUI
             data!.append(total)
         }
         users[userIndex].data[numberOfDiceSelected] = data
+        showClearHistoryButton = true
     }
     
-    func deleteDataForNumberOfDice(_ numberOfDice: Int, user: User) {
-        if let userIndex = users.firstIndex(where: { $0 == user }) {
-            withAnimation {
-                users[userIndex].data[numberOfDice] = nil
-            }
+    func clearHistory() {
+        users.indices.forEach { index in
+            users[index].data = [Int: [Int]]()
         }
+        showClearHistoryButton = false
     }
 }

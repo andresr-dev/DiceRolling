@@ -14,10 +14,6 @@ struct HistoryView: View {
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, pinnedViews: [.sectionHeaders]) {
-                if vm.users.isEmpty {
-                    Text("There's no users yet!")
-                        .frame(maxWidth: .infinity)
-                }
                 ForEach(vm.users, id: \.name) { user in
                     Section {
                         if let data1 = user.data[1] {
@@ -34,11 +30,10 @@ struct HistoryView: View {
                         }
                         if user.data[1] == nil && user.data[2] == nil && user.data[3] == nil && user.data[4] == nil {
                             GroupBox {
-                                Text("No data yet!")
+                                Text("No data!")
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         }
-                        
                     } header: {
                         Text(user.name)
                             .font(.title2.weight(.semibold))
@@ -47,13 +42,32 @@ struct HistoryView: View {
                             .background(Color(uiColor: .systemBackground))
                     }
                 }
+                if vm.users.isEmpty {
+                    Text("There's no users yet!")
+                        .frame(maxWidth: .infinity)
+                } else {
+                    if vm.showClearHistoryButton {
+                        GroupBox {
+                            Button("Clear History", role: .destructive) {
+                                showAlert = true
+                            }
+                            .frame(maxWidth: .infinity)
+                        }
+                        .alert("Clear History", isPresented: $showAlert) {
+                            Button("Cancel", role: .cancel) { }
+                            Button("Delete", role: .destructive) {
+                                vm.clearHistory()
+                            }
+                        } message: {
+                            Text("Are you sure you want to clear the history data?")
+                        }
+                    }
+                }
             }
             .padding()
         }
         .navigationTitle("History")
         .navigationBarTitleDisplayMode(.inline)
-        
-        
     }
 }
 
@@ -85,21 +99,9 @@ extension HistoryView {
                 .font(.headline)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.vertical, 8)
-            Divider()
-            Button("Delete Data", role: .destructive) {
-                showAlert = true
-            }
-
+            
         } label: {
             Label("\(numberOfDice) Dice", systemImage: "dice")
-        }
-        .alert("Delete Data", isPresented: $showAlert) {
-            Button("Cancel", role: .cancel) { }
-            Button("Delete", role: .destructive) {
-                vm.deleteDataForNumberOfDice(numberOfDice, user: user)
-            }
-        } message: {
-            Text("Are you sure you want to delete the \(numberOfDice) Dice data of \(user.name)?")
         }
     }
 }
