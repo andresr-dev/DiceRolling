@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct DiceView: View {
     let size: Double
     @Binding var roll: Bool
     @Binding var result: Int
+    
+    @State private var engine: CHHapticEngine?
     
     @State private var horizontalPattern: [Int]
     @State private var verticalPattern: [Int]
@@ -32,6 +35,7 @@ struct DiceView: View {
                 roll = false
             }
         }
+        .onAppear(perform: prepareHaptics)
     }
     
     init(size: Double, roll: Binding<Bool>, result: Binding<Int>) {
@@ -86,6 +90,7 @@ extension DiceView {
     
     private func rotateDice(_ facingSideIndex: Int, _ nextSideIndex: Int) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            rollHaptic()
             withAnimation(.easeInOut(duration: 0.2)) {
                 self.dice[facingSideIndex].degrees += 90
                 self.dice[facingSideIndex].offset -= self.size
@@ -149,7 +154,6 @@ extension DiceView {
             }
         }
     }
-    
     // MARK: - VERTICAL ROLLING METHODS
     
     private func moveVerticalPattern() {
@@ -192,6 +196,38 @@ extension DiceView {
                     }
                 }
             }
+        }
+    }
+    // MARK: - HAPTICS METHODS
+    private func prepareHaptics() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        
+        do {
+            engine = try CHHapticEngine()
+            try engine?.start()
+        } catch {
+            print("There was an error creating the engine \(error.localizedDescription)")
+        }
+    }
+    
+    private func rollHaptic() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        
+        var events = [CHHapticEvent]()
+        
+        for i in stride(from: 0, through: 0.2, by: 0.1) {
+            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(i * 2.5) + 0.1)
+            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(i * 2.5) + 0.1)
+            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: i)
+            events.append(event)
+        }
+        
+        do {
+            let pattern = try CHHapticPattern(events: events, parameters: [])
+            let player = try engine?.makePlayer(with: pattern)
+            try player?.start(atTime: 0)
+        } catch {
+            print("Failed to play pattern: \(error.localizedDescription)")
         }
     }
 }

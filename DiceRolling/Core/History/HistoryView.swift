@@ -103,5 +103,9 @@ extension HistoryView {
         } label: {
             Label("\(numberOfDice) Dice", systemImage: "dice")
         }
+        .accessibilityElement()
+        .accessibilityLabel(user.name)
+        .accessibilityHint("\(numberOfDice) dice")
+        .accessibilityValue(data.reduce(0, +) != 1 ? "Total: \(data.reduce(0, +)) Points" : "Total: \(data.reduce(0, +)) Point")
     }
 }
