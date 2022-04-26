@@ -12,6 +12,9 @@
 		8153F04A281717CB006FEC9F /* CustomHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8153F049281717CB006FEC9F /* CustomHaptics.swift */; };
 		8153F04C281742F3006FEC9F /* AccessibilityExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8153F04B281742F3006FEC9F /* AccessibilityExample.swift */; };
 		8153F04E28174D12006FEC9F /* AccessibilityValueExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8153F04D28174D12006FEC9F /* AccessibilityValueExample.swift */; };
+		8153F05028183938006FEC9F /* AnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8153F04F28183938006FEC9F /* AnimationExample.swift */; };
+		8153F052281861C4006FEC9F /* DifferentiateWithoutColorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8153F051281861C4006FEC9F /* DifferentiateWithoutColorExample.swift */; };
+		8153F0542818647F006FEC9F /* ReduceTransparencyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8153F0532818647F006FEC9F /* ReduceTransparencyExample.swift */; };
 		8197F1D5280DBCCB00E81151 /* DiceRollingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8197F1D4280DBCCB00E81151 /* DiceRollingApp.swift */; };
 		8197F1D9280DBCCD00E81151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8197F1D8280DBCCD00E81151 /* Assets.xcassets */; };
 		8197F1DC280DBCCD00E81151 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8197F1DB280DBCCD00E81151 /* Preview Assets.xcassets */; };
@@ -35,6 +38,9 @@
 		8153F049281717CB006FEC9F /* CustomHaptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHaptics.swift; sourceTree = "<group>"; };
 		8153F04B281742F3006FEC9F /* AccessibilityExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityExample.swift; sourceTree = "<group>"; };
 		8153F04D28174D12006FEC9F /* AccessibilityValueExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityValueExample.swift; sourceTree = "<group>"; };
+		8153F04F28183938006FEC9F /* AnimationExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExample.swift; sourceTree = "<group>"; };
+		8153F051281861C4006FEC9F /* DifferentiateWithoutColorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentiateWithoutColorExample.swift; sourceTree = "<group>"; };
+		8153F0532818647F006FEC9F /* ReduceTransparencyExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduceTransparencyExample.swift; sourceTree = "<group>"; };
 		8197F1D1280DBCCB00E81151 /* DiceRolling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiceRolling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8197F1D4280DBCCB00E81151 /* DiceRollingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollingApp.swift; sourceTree = "<group>"; };
 		8197F1D8280DBCCD00E81151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +119,9 @@
 				8153F049281717CB006FEC9F /* CustomHaptics.swift */,
 				8153F04B281742F3006FEC9F /* AccessibilityExample.swift */,
 				8153F04D28174D12006FEC9F /* AccessibilityValueExample.swift */,
+				8153F04F28183938006FEC9F /* AnimationExample.swift */,
+				8153F051281861C4006FEC9F /* DifferentiateWithoutColorExample.swift */,
+				8153F0532818647F006FEC9F /* ReduceTransparencyExample.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -266,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8153F04828171572006FEC9F /* SimpleHaptics.swift in Sources */,
+				8153F052281861C4006FEC9F /* DifferentiateWithoutColorExample.swift in Sources */,
 				81BB22CD2815B90400F4D6B3 /* User.swift in Sources */,
 				8197F2062814A7E700E81151 /* ViewModel.swift in Sources */,
 				8197F2032814A58B00E81151 /* ContentView.swift in Sources */,
@@ -280,9 +290,11 @@
 				8197F1E4280DBDA200E81151 /* DiceView.swift in Sources */,
 				8197F1FD281319E900E81151 /* ShapeStyle.swift in Sources */,
 				8197F1D5280DBCCB00E81151 /* DiceRollingApp.swift in Sources */,
+				8153F05028183938006FEC9F /* AnimationExample.swift in Sources */,
 				8197F1EB280EFD3B00E81151 /* Test.swift in Sources */,
 				8197F2092814A84D00E81151 /* SettingsView.swift in Sources */,
 				8153F04E28174D12006FEC9F /* AccessibilityValueExample.swift in Sources */,
+				8153F0542818647F006FEC9F /* ReduceTransparencyExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

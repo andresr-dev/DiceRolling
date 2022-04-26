@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.dismiss) private var dismiss
     @ObservedObject var vm: ViewModel
     @State private var name = ""
         
@@ -39,6 +40,11 @@ struct SettingsView: View {
             }
         }
         .navigationTitle("Settings")
+        .onChange(of: vm.numberOfDiceSelected) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                dismiss()
+            }
+        }
     }
     
     private func addButtonPressed() {
